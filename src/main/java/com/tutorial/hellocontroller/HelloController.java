@@ -1,25 +1,17 @@
 package com.tutorial.hellocontroller;
-
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import java.net.http.HttpRequest;
-
-import javax. servlet.HttpConstraintElement;
-
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.test.web.ModelAndViewAssert;
 
-public class HelloController extends ModelAndViewAssert  {
-	
-	protected ModelAndViewAssert handleRequestInternal(HttpRequest request,
-			HttpServletResponse response) throws Exception{
-		
-		ModelAndViewAssert  model = new ModelAndViewAssert("HelloPage");
-		((Object) model).addObject("WelcomeMessage","hi user, welcome to first spring MVC Application");
-		return model;
-		
-	}
-}
+@Controller
 
-	 
+public class HelloController {
+	@RequestMapping("/welcome/country/Name/{userName}")
+	public ModelAndViewAssert helloWorld(@PathVariable("userName") String name) {
+		
+		 ModelAndViewAssert model = new ModelAndViewAssert("HelloPage");
+		 ((Object) model).addObject("msg","hello world"+name);
+		 return model;
+}
+	
+	}
