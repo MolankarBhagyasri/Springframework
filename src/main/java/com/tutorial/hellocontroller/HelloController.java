@@ -6,11 +6,11 @@ import org.springframework.test.web.ModelAndViewAssert;
 @Controller
 
 public class HelloController {
-	@RequestMapping("/welcome/country/Name/{userName}")
+	@RequestMapping("/welcome")
 	public ModelAndViewAssert helloWorld(@PathVariable("userName") String name) {
 		
 		 ModelAndViewAssert model = new ModelAndViewAssert("HelloPage");
-		 ((Object) model).addObject("msg","hello world"+name);
+		 ((Object) model).addObject("mesage","hello world"+name);
 		 return model;
 }
 	
